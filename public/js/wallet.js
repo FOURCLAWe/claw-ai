@@ -147,12 +147,12 @@ function showDashboard() {
   document.getElementById('landing').classList.add('hidden');
   document.getElementById('dashboard').classList.remove('hidden');
   document.getElementById('wallet-addr').textContent = shortAddr(userAddress);
-  document.getElementById('wallet-balance').textContent = formatNum(clawBalance) + ' CLAW';
+  document.getElementById('wallet-balance').textContent = formatNum(clawBalance) + ' FCLAW';
 }
 
 function showInsufficientModal() {
   document.getElementById('modal-insufficient').classList.remove('hidden');
-  document.getElementById('modal-balance').textContent = 'Your balance: ' + formatNum(clawBalance) + ' CLAW';
+  document.getElementById('modal-balance').textContent = 'Your balance: ' + formatNum(clawBalance) + ' FCLAW';
 }
 
 function shortAddr(addr) {

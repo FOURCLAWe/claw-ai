@@ -1,8 +1,8 @@
-# Claw AI 🐾
+# Four Claw 🐾
 
 AI-Powered Crypto Intelligence on BSC.
 
-Hold **200,000 $CLAW** to unlock AI Agent services:
+Hold **200,000 $FCLAW** to unlock AI Agent services:
 
 - 🔍 Twitter/X user analytics
 - 👑 KOL follower tracking
@@ -18,8 +18,8 @@ Hold **200,000 $CLAW** to unlock AI Agent services:
 
 ## Token
 
-- **Name:** Claw AI
-- **Symbol:** $CLAW
+- **Name:** Four Claw
+- **Symbol:** $FCLAW
 - **Chain:** BSC (BNB Smart Chain)
 - **Total Supply:** 1,000,000,000
 
