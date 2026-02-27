@@ -6,7 +6,6 @@
   <title>Claw AI — AI-Powered Crypto Intelligence</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
   <script>
@@ -16,8 +15,7 @@
           fontFamily: { sans: ['Inter', 'sans-serif'] },
           colors: {
             dark: { 950: '#050508', 900: '#0a0a0f', 800: '#12121a', 700: '#1a1a25', 600: '#242430' },
-            accent: { 300: '#a5b4fc', 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5' },
-            glow: { purple: '#7c3aed', blue: '#3b82f6', pink: '#ec4899' }
+            accent: { 300: '#a5b4fc', 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5' }
           }
         }
       }
@@ -25,9 +23,8 @@
   </script>
 </head>
 <body class="bg-dark-950 text-gray-100 font-sans min-h-screen overflow-x-hidden">
-
-  <!-- Animated background -->
-  <div class="fixed inset-0 z-0">
+  <!-- Animated BG -->
+  <div class="fixed inset-0 z-0 pointer-events-none">
     <div class="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[120px] animate-pulse"></div>
     <div class="absolute bottom-[-20%] right-[-10%] w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] animate-pulse" style="animation-delay:2s"></div>
     <div class="absolute top-[40%] left-[50%] w-[400px] h-[400px] bg-pink-600/5 rounded-full blur-[100px] animate-pulse" style="animation-delay:4s"></div>
@@ -44,7 +41,7 @@
         <a href="#features" class="text-sm text-gray-400 hover:text-white transition hidden sm:block">Features</a>
         <a href="#how-it-works" class="text-sm text-gray-400 hover:text-white transition hidden sm:block">How it Works</a>
         <a href="#tokenomics" class="text-sm text-gray-400 hover:text-white transition hidden sm:block">Tokenomics</a>
-        <button id="btn-connect" onclick="connectWallet()" class="px-5 py-2 rounded-xl bg-gradient-to-r from-accent-500 to-purple-500 hover:from-accent-600 hover:to-purple-600 text-white text-sm font-semibold transition shadow-lg shadow-accent-500/20">
+        <button id="btn-connect" onclick="showWalletModal()" class="px-5 py-2 rounded-xl bg-gradient-to-r from-accent-500 to-purple-500 hover:from-accent-600 hover:to-purple-600 text-white text-sm font-semibold transition shadow-lg shadow-accent-500/20">
           Connect Wallet
         </button>
       </div>
@@ -53,7 +50,6 @@
 
   <!-- Landing -->
   <section id="landing" class="relative z-10">
-    <!-- Hero -->
     <div class="pt-32 pb-16">
       <div class="max-w-5xl mx-auto px-6 text-center">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-500/10 border border-accent-500/20 text-accent-400 text-xs font-medium mb-8">
@@ -65,35 +61,22 @@
           <span class="bg-gradient-to-r from-accent-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Crypto Intelligence</span>
         </h1>
         <p class="text-lg sm:text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
-          Track KOLs, analyze Twitter data, monitor real-time crypto news with AI ratings and trading signals. All in one platform.
+          Track KOLs, analyze Twitter data, monitor real-time crypto news with AI ratings and trading signals.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-          <button onclick="connectWallet()" class="group px-8 py-4 rounded-2xl bg-gradient-to-r from-accent-500 to-purple-500 hover:from-accent-600 hover:to-purple-600 text-white font-bold text-lg transition shadow-2xl shadow-accent-500/25 hover:shadow-accent-500/40">
+          <button onclick="showWalletModal()" class="group px-8 py-4 rounded-2xl bg-gradient-to-r from-accent-500 to-purple-500 hover:from-accent-600 hover:to-purple-600 text-white font-bold text-lg transition shadow-2xl shadow-accent-500/25 hover:shadow-accent-500/40">
             Launch App <span class="inline-block ml-1 group-hover:translate-x-1 transition-transform">→</span>
           </button>
           <a href="#" id="buy-link" target="_blank" class="px-8 py-4 rounded-2xl border border-white/10 hover:border-white/25 text-gray-300 hover:text-white font-bold text-lg transition hover:bg-white/5">
             Buy $CLAW
           </a>
         </div>
-
         <!-- Stats -->
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto">
-          <div class="p-4 rounded-2xl bg-dark-800/50 border border-white/5 backdrop-blur">
-            <div class="text-2xl font-bold text-white">50+</div>
-            <div class="text-xs text-gray-500 mt-1">News Sources</div>
-          </div>
-          <div class="p-4 rounded-2xl bg-dark-800/50 border border-white/5 backdrop-blur">
-            <div class="text-2xl font-bold text-white">Real-time</div>
-            <div class="text-xs text-gray-500 mt-1">AI Analysis</div>
-          </div>
-          <div class="p-4 rounded-2xl bg-dark-800/50 border border-white/5 backdrop-blur">
-            <div class="text-2xl font-bold text-white">100K+</div>
-            <div class="text-xs text-gray-500 mt-1">KOLs Tracked</div>
-          </div>
-          <div class="p-4 rounded-2xl bg-dark-800/50 border border-white/5 backdrop-blur">
-            <div class="text-2xl font-bold text-white">BSC</div>
-            <div class="text-xs text-gray-500 mt-1">Network</div>
-          </div>
+          <div class="p-4 rounded-2xl bg-dark-800/50 border border-white/5 backdrop-blur"><div class="text-2xl font-bold text-white">50+</div><div class="text-xs text-gray-500 mt-1">News Sources</div></div>
+          <div class="p-4 rounded-2xl bg-dark-800/50 border border-white/5 backdrop-blur"><div class="text-2xl font-bold text-white">Real-time</div><div class="text-xs text-gray-500 mt-1">AI Analysis</div></div>
+          <div class="p-4 rounded-2xl bg-dark-800/50 border border-white/5 backdrop-blur"><div class="text-2xl font-bold text-white">100K+</div><div class="text-xs text-gray-500 mt-1">KOLs Tracked</div></div>
+          <div class="p-4 rounded-2xl bg-dark-800/50 border border-white/5 backdrop-blur"><div class="text-2xl font-bold text-white">BSC</div><div class="text-xs text-gray-500 mt-1">Network</div></div>
         </div>
       </div>
     </div>
@@ -102,25 +85,25 @@
     <div id="features" class="max-w-6xl mx-auto px-6 py-24">
       <div class="text-center mb-16">
         <h2 class="text-3xl sm:text-4xl font-bold mb-4">Powerful AI Agent Tools</h2>
-        <p class="text-gray-400 max-w-xl mx-auto">Everything you need to stay ahead in crypto, powered by artificial intelligence.</p>
+        <p class="text-gray-400 max-w-xl mx-auto">Everything you need to stay ahead in crypto.</p>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="group p-6 rounded-2xl bg-dark-800/50 border border-white/5 hover:border-accent-500/30 transition-all duration-300 backdrop-blur hover:bg-dark-800/80 hover:-translate-y-1">
+        <div class="group p-6 rounded-2xl bg-dark-800/50 border border-white/5 hover:border-accent-500/30 transition-all duration-300 backdrop-blur hover:-translate-y-1">
           <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">🔍</div>
           <h3 class="font-bold mb-2 text-lg">Twitter Analytics</h3>
-          <p class="text-sm text-gray-400 leading-relaxed">Query any Twitter/X user profile, followers, engagement data, and deleted tweets instantly.</p>
+          <p class="text-sm text-gray-400 leading-relaxed">Query any Twitter/X user profile, followers, engagement data, and deleted tweets.</p>
         </div>
-        <div class="group p-6 rounded-2xl bg-dark-800/50 border border-white/5 hover:border-purple-500/30 transition-all duration-300 backdrop-blur hover:bg-dark-800/80 hover:-translate-y-1">
+        <div class="group p-6 rounded-2xl bg-dark-800/50 border border-white/5 hover:border-purple-500/30 transition-all duration-300 backdrop-blur hover:-translate-y-1">
           <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">👑</div>
           <h3 class="font-bold mb-2 text-lg">KOL Tracking</h3>
           <p class="text-sm text-gray-400 leading-relaxed">Discover which Key Opinion Leaders follow any account. Follow the smart money.</p>
         </div>
-        <div class="group p-6 rounded-2xl bg-dark-800/50 border border-white/5 hover:border-pink-500/30 transition-all duration-300 backdrop-blur hover:bg-dark-800/80 hover:-translate-y-1">
+        <div class="group p-6 rounded-2xl bg-dark-800/50 border border-white/5 hover:border-pink-500/30 transition-all duration-300 backdrop-blur hover:-translate-y-1">
           <div class="w-12 h-12 rounded-xl bg-pink-500/10 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">📰</div>
           <h3 class="font-bold mb-2 text-lg">Crypto News</h3>
-          <p class="text-sm text-gray-400 leading-relaxed">Real-time aggregated news from Bloomberg, Reuters, and 50+ crypto sources worldwide.</p>
+          <p class="text-sm text-gray-400 leading-relaxed">Real-time aggregated news from Bloomberg, Reuters, and 50+ crypto sources.</p>
         </div>
-        <div class="group p-6 rounded-2xl bg-dark-800/50 border border-white/5 hover:border-green-500/30 transition-all duration-300 backdrop-blur hover:bg-dark-800/80 hover:-translate-y-1">
+        <div class="group p-6 rounded-2xl bg-dark-800/50 border border-white/5 hover:border-green-500/30 transition-all duration-300 backdrop-blur hover:-translate-y-1">
           <div class="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">🤖</div>
           <h3 class="font-bold mb-2 text-lg">AI Signals</h3>
           <p class="text-sm text-gray-400 leading-relaxed">AI-rated news with bullish/bearish signals and impact scores from 0 to 100.</p>
@@ -187,8 +170,8 @@
         <div class="absolute inset-0 bg-dark-900/50"></div>
         <div class="relative z-10">
           <h2 class="text-3xl sm:text-4xl font-bold mb-4">Ready to Get Started?</h2>
-          <p class="text-gray-400 mb-8 max-w-lg mx-auto">Join the future of AI-powered crypto intelligence. Connect your wallet and start exploring.</p>
-          <button onclick="connectWallet()" class="px-10 py-4 rounded-2xl bg-gradient-to-r from-accent-500 to-purple-500 hover:from-accent-600 hover:to-purple-600 text-white font-bold text-lg transition shadow-2xl shadow-accent-500/25">
+          <p class="text-gray-400 mb-8 max-w-lg mx-auto">Join the future of AI-powered crypto intelligence.</p>
+          <button onclick="showWalletModal()" class="px-10 py-4 rounded-2xl bg-gradient-to-r from-accent-500 to-purple-500 hover:from-accent-600 hover:to-purple-600 text-white font-bold text-lg transition shadow-2xl shadow-accent-500/25">
             Launch App →
           </button>
         </div>
@@ -196,151 +179,131 @@
     </div>
   </section>
 
-  <!-- Dashboard (hidden until wallet verified) -->
+  <!-- Dashboard -->
   <section id="dashboard" class="hidden relative z-10 pt-24 pb-20 px-6">
     <div class="max-w-6xl mx-auto">
-      <!-- Status bar -->
       <div class="flex items-center justify-between mb-8">
-        <div>
-          <h2 class="text-2xl font-bold">AI Agent Dashboard</h2>
-          <p class="text-sm text-gray-500 mt-1">Your crypto intelligence command center</p>
-        </div>
+        <h2 class="text-2xl font-bold">AI Agent Dashboard</h2>
         <div id="wallet-info" class="flex items-center gap-3">
-          <span id="wallet-balance" class="text-sm font-semibold text-accent-400 bg-accent-500/10 px-3 py-1 rounded-lg"></span>
-          <span id="wallet-addr" class="text-sm text-gray-400 bg-dark-700 px-3 py-1.5 rounded-lg border border-white/5"></span>
+          <span id="wallet-balance" class="text-sm text-accent-400"></span>
+          <span id="wallet-addr" class="text-sm text-gray-400 bg-dark-700 px-3 py-1 rounded-lg"></span>
         </div>
       </div>
-
-      <!-- Tabs -->
-      <div class="flex gap-2 mb-6 p-1 bg-dark-800/50 rounded-xl border border-white/5 w-fit">
-        <button onclick="switchTab('twitter')" class="tab-btn active px-5 py-2.5 rounded-lg text-sm font-medium transition" data-tab="twitter">🔍 Twitter</button>
-        <button onclick="switchTab('kol')" class="tab-btn px-5 py-2.5 rounded-lg text-sm font-medium transition" data-tab="kol">👑 KOL Tracker</button>
-        <button onclick="switchTab('tweets')" class="tab-btn px-5 py-2.5 rounded-lg text-sm font-medium transition" data-tab="tweets">💬 Tweets</button>
-        <button onclick="switchTab('news')" class="tab-btn px-5 py-2.5 rounded-lg text-sm font-medium transition" data-tab="news">📰 News</button>
+      <div class="flex gap-2 mb-6 border-b border-white/5 pb-3 overflow-x-auto">
+        <button onclick="switchTab('twitter')" class="tab-btn active px-4 py-2 rounded-lg text-sm font-medium transition whitespace-nowrap" data-tab="twitter">🔍 Twitter</button>
+        <button onclick="switchTab('kol')" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium transition whitespace-nowrap" data-tab="kol">👑 KOL Tracker</button>
+        <button onclick="switchTab('tweets')" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium transition whitespace-nowrap" data-tab="tweets">💬 Tweet Search</button>
+        <button onclick="switchTab('news')" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium transition whitespace-nowrap" data-tab="news">📰 News</button>
       </div>
 
       <!-- Twitter User Panel -->
       <div id="panel-twitter" class="panel">
         <div class="bg-dark-800/50 rounded-2xl border border-white/5 p-6 backdrop-blur">
-          <h3 class="text-lg font-semibold mb-4">Twitter User Lookup</h3>
           <div class="flex gap-3 mb-6">
-            <input id="tw-username" type="text" placeholder="Enter Twitter username (without @)"
-              class="flex-1 bg-dark-700 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-accent-500 focus:ring-1 focus:ring-accent-500/50 transition placeholder-gray-600">
-            <button onclick="queryUser()" class="px-6 py-3 bg-gradient-to-r from-accent-500 to-purple-500 hover:from-accent-600 hover:to-purple-600 rounded-xl text-sm font-semibold transition shadow-lg shadow-accent-500/20">Search</button>
+            <input id="tw-username" type="text" placeholder="Enter Twitter username (without @)" class="flex-1 bg-dark-700 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-accent-500 transition">
+            <button onclick="queryUser()" class="px-6 py-3 bg-accent-500 hover:bg-accent-600 rounded-xl text-sm font-medium transition">Search</button>
           </div>
           <div id="tw-result" class="hidden">
-            <div class="flex items-start gap-4 p-5 bg-dark-700/50 rounded-xl border border-white/5">
-              <img id="tw-avatar" class="w-16 h-16 rounded-full ring-2 ring-accent-500/30" src="" alt="">
+            <div class="flex items-start gap-4 p-4 bg-dark-700/50 rounded-xl">
+              <img id="tw-avatar" class="w-16 h-16 rounded-full" src="" alt="">
               <div class="flex-1">
-                <div class="flex items-center gap-2">
-                  <span id="tw-name" class="font-bold text-lg"></span>
-                  <span id="tw-verified" class="hidden text-blue-400 text-sm">✓ Verified</span>
-                </div>
+                <div class="flex items-center gap-2"><span id="tw-name" class="font-semibold text-lg"></span><span id="tw-verified" class="hidden text-blue-400">✓</span></div>
                 <div id="tw-screen" class="text-sm text-gray-400"></div>
-                <div id="tw-desc" class="text-sm text-gray-300 mt-2 leading-relaxed"></div>
-                <div class="flex gap-6 mt-4">
-                  <div class="text-center"><span id="tw-followers" class="font-bold text-accent-400"></span><br><span class="text-gray-500 text-xs">Followers</span></div>
-                  <div class="text-center"><span id="tw-following" class="font-bold"></span><br><span class="text-gray-500 text-xs">Following</span></div>
-                  <div class="text-center"><span id="tw-tweets" class="font-bold"></span><br><span class="text-gray-500 text-xs">Tweets</span></div>
+                <div id="tw-desc" class="text-sm text-gray-300 mt-2"></div>
+                <div class="flex gap-6 mt-3">
+                  <div><span id="tw-followers" class="font-semibold"></span> <span class="text-gray-400 text-sm">Followers</span></div>
+                  <div><span id="tw-following" class="font-semibold"></span> <span class="text-gray-400 text-sm">Following</span></div>
+                  <div><span id="tw-tweets" class="font-semibold"></span> <span class="text-gray-400 text-sm">Tweets</span></div>
                 </div>
               </div>
             </div>
           </div>
-          <div id="tw-loading" class="hidden text-center py-8 text-gray-400">
-            <div class="loader mx-auto mb-3"></div>Searching...
-          </div>
+          <div id="tw-loading" class="hidden text-center py-8 text-gray-400"><div class="loader mx-auto mb-3"></div>Searching...</div>
         </div>
       </div>
 
       <!-- KOL Panel -->
       <div id="panel-kol" class="panel hidden">
         <div class="bg-dark-800/50 rounded-2xl border border-white/5 p-6 backdrop-blur">
-          <h3 class="text-lg font-semibold mb-4">KOL Follower Analysis</h3>
           <div class="flex gap-3 mb-6">
-            <input id="kol-username" type="text" placeholder="Enter username to check KOL followers"
-              class="flex-1 bg-dark-700 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-accent-500 focus:ring-1 focus:ring-accent-500/50 transition placeholder-gray-600">
-            <button onclick="queryKOL()" class="px-6 py-3 bg-gradient-to-r from-accent-500 to-purple-500 hover:from-accent-600 hover:to-purple-600 rounded-xl text-sm font-semibold transition shadow-lg shadow-accent-500/20">Analyze</button>
+            <input id="kol-username" type="text" placeholder="Enter username to check KOL followers" class="flex-1 bg-dark-700 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-accent-500 transition">
+            <button onclick="queryKOL()" class="px-6 py-3 bg-accent-500 hover:bg-accent-600 rounded-xl text-sm font-medium transition">Analyze</button>
           </div>
           <div id="kol-count" class="hidden text-sm text-gray-400 mb-4"></div>
           <div id="kol-list" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
-          <div id="kol-loading" class="hidden text-center py-8 text-gray-400">
-            <div class="loader mx-auto mb-3"></div>Analyzing KOL followers...
-          </div>
-          <div id="kol-empty" class="hidden text-center py-8 text-gray-500">No KOL followers found for this account.</div>
+          <div id="kol-loading" class="hidden text-center py-8 text-gray-400"><div class="loader mx-auto mb-3"></div>Analyzing KOL followers...</div>
+          <div id="kol-empty" class="hidden text-center py-8 text-gray-500">No KOL followers found.</div>
         </div>
       </div>
 
       <!-- Tweet Search Panel -->
       <div id="panel-tweets" class="panel hidden">
         <div class="bg-dark-800/50 rounded-2xl border border-white/5 p-6 backdrop-blur">
-          <h3 class="text-lg font-semibold mb-4">Tweet Search</h3>
           <div class="flex gap-3 mb-6">
-            <input id="tweet-query" type="text" placeholder="Search tweets by keyword..."
-              class="flex-1 bg-dark-700 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-accent-500 focus:ring-1 focus:ring-accent-500/50 transition placeholder-gray-600">
-            <button onclick="searchTweets()" class="px-6 py-3 bg-gradient-to-r from-accent-500 to-purple-500 hover:from-accent-600 hover:to-purple-600 rounded-xl text-sm font-semibold transition shadow-lg shadow-accent-500/20">Search</button>
+            <input id="tweet-query" type="text" placeholder="Search tweets by keyword..." class="flex-1 bg-dark-700 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-accent-500 transition">
+            <button onclick="searchTweets()" class="px-6 py-3 bg-accent-500 hover:bg-accent-600 rounded-xl text-sm font-medium transition">Search</button>
           </div>
           <div id="tweet-list" class="space-y-3"></div>
-          <div id="tweet-loading" class="hidden text-center py-8 text-gray-400">
-            <div class="loader mx-auto mb-3"></div>Searching tweets...
-          </div>
+          <div id="tweet-loading" class="hidden text-center py-8 text-gray-400"><div class="loader mx-auto mb-3"></div>Searching tweets...</div>
         </div>
       </div>
 
       <!-- News Panel -->
       <div id="panel-news" class="panel hidden">
         <div class="bg-dark-800/50 rounded-2xl border border-white/5 p-6 backdrop-blur">
-          <h3 class="text-lg font-semibold mb-4">Crypto News Feed</h3>
           <div class="flex gap-3 mb-6">
-            <input id="news-query" type="text" placeholder="Search news (e.g. BTC, ETH, SEC...)"
-              class="flex-1 bg-dark-700 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-accent-500 focus:ring-1 focus:ring-accent-500/50 transition placeholder-gray-600">
-            <select id="news-coin" class="bg-dark-700 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-accent-500">
-              <option value="">All Coins</option>
-              <option value="BTC">BTC</option>
-              <option value="ETH">ETH</option>
-              <option value="SOL">SOL</option>
-              <option value="BNB">BNB</option>
+            <input id="news-query" type="text" placeholder="Search news (e.g. BTC, ETH, SEC...)" class="flex-1 bg-dark-700 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-accent-500 transition">
+            <select id="news-coin" class="bg-dark-700 border border-white/10 rounded-xl px-3 py-3 text-sm focus:outline-none focus:border-accent-500">
+              <option value="">All Coins</option><option value="BTC">BTC</option><option value="ETH">ETH</option><option value="SOL">SOL</option><option value="BNB">BNB</option>
             </select>
-            <button onclick="searchNews()" class="px-6 py-3 bg-gradient-to-r from-accent-500 to-purple-500 hover:from-accent-600 hover:to-purple-600 rounded-xl text-sm font-semibold transition shadow-lg shadow-accent-500/20">Search</button>
+            <button onclick="searchNews()" class="px-6 py-3 bg-accent-500 hover:bg-accent-600 rounded-xl text-sm font-medium transition">Search</button>
           </div>
           <div id="news-list" class="space-y-3"></div>
-          <div id="news-loading" class="hidden text-center py-8 text-gray-400">
-            <div class="loader mx-auto mb-3"></div>Loading news...
-          </div>
+          <div id="news-loading" class="hidden text-center py-8 text-gray-400"><div class="loader mx-auto mb-3"></div>Loading news...</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Not enough tokens modal -->
-  <div id="modal-insufficient" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
-    <div class="bg-dark-800 border border-white/10 rounded-3xl p-10 max-w-md mx-4 text-center shadow-2xl">
-      <div class="w-20 h-20 rounded-full bg-red-500/10 flex items-center justify-center text-4xl mx-auto mb-6">🔒</div>
-      <h3 class="text-2xl font-bold mb-3">Insufficient $CLAW</h3>
-      <p class="text-gray-400 mb-2">You need at least <span class="text-accent-400 font-bold">200,000 $CLAW</span> to access AI Agent services.</p>
-      <p id="modal-balance" class="text-sm text-gray-500 mb-8"></p>
+  <!-- Wallet Selection Modal -->
+  <div id="modal-wallet" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+    <div class="bg-dark-800 border border-white/10 rounded-2xl p-8 max-w-sm mx-4 w-full">
+      <h3 class="text-xl font-bold mb-6 text-center">Connect Wallet</h3>
+      <div class="space-y-3">
+        <button onclick="connectWith('metamask')" class="w-full flex items-center gap-4 p-4 rounded-xl bg-dark-700 border border-white/5 hover:border-accent-500/30 transition">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg" class="w-8 h-8" alt="MetaMask">
+          <div class="text-left"><div class="font-semibold">MetaMask</div><div class="text-xs text-gray-400">Browser extension</div></div>
+        </button>
+        <button onclick="connectWith('okx')" class="w-full flex items-center gap-4 p-4 rounded-xl bg-dark-700 border border-white/5 hover:border-accent-500/30 transition">
+          <div class="w-8 h-8 rounded-lg bg-white flex items-center justify-center text-black font-black text-sm">OKX</div>
+          <div class="text-left"><div class="font-semibold">OKX Wallet</div><div class="text-xs text-gray-400">Browser extension</div></div>
+        </button>
+        <button onclick="connectWith('any')" class="w-full flex items-center gap-4 p-4 rounded-xl bg-dark-700 border border-white/5 hover:border-accent-500/30 transition">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-500 to-purple-500 flex items-center justify-center text-white text-lg">🌐</div>
+          <div class="text-left"><div class="font-semibold">Other Wallet</div><div class="text-xs text-gray-400">Any EVM wallet</div></div>
+        </button>
+      </div>
+      <button onclick="closeWalletModal()" class="w-full mt-4 py-3 text-sm text-gray-400 hover:text-white transition">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Insufficient tokens modal -->
+  <div id="modal-insufficient" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+    <div class="bg-dark-800 border border-white/10 rounded-2xl p-8 max-w-md mx-4 text-center">
+      <div class="text-5xl mb-4">🔒</div>
+      <h3 class="text-xl font-bold mb-2">Insufficient $CLAW</h3>
+      <p class="text-gray-400 mb-2">You need at least <span class="text-accent-400 font-semibold">200,000 $CLAW</span> to access AI Agent services.</p>
+      <p id="modal-balance" class="text-sm text-gray-500 mb-6"></p>
       <div class="flex gap-3 justify-center">
-        <a href="#" id="modal-buy" target="_blank" class="px-8 py-3 bg-gradient-to-r from-accent-500 to-purple-500 hover:from-accent-600 hover:to-purple-600 rounded-xl text-sm font-semibold transition shadow-lg">Buy $CLAW</a>
-        <button onclick="closeModal()" class="px-8 py-3 border border-white/10 rounded-xl text-sm font-semibold transition hover:border-white/20 hover:bg-white/5">Close</button>
+        <a href="#" id="modal-buy" target="_blank" class="px-6 py-3 bg-accent-500 hover:bg-accent-600 rounded-xl text-sm font-medium transition">Buy $CLAW</a>
+        <button onclick="closeInsufficientModal()" class="px-6 py-3 border border-white/10 rounded-xl text-sm font-medium transition hover:border-white/20">Close</button>
       </div>
     </div>
   </div>
 
   <!-- Footer -->
-  <footer class="relative z-10 border-t border-white/5 py-12">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div class="flex items-center gap-2">
-          <div class="w-6 h-6 rounded-md bg-gradient-to-br from-accent-500 to-purple-500 flex items-center justify-center text-xs">🐾</div>
-          <span class="font-bold bg-gradient-to-r from-accent-400 to-purple-400 bg-clip-text text-transparent">Claw AI</span>
-        </div>
-        <p class="text-sm text-gray-600">© 2026 Claw AI. Built on BSC. Powered by AI.</p>
-        <div class="flex gap-4">
-          <a href="#" class="text-sm text-gray-500 hover:text-white transition">Twitter</a>
-          <a href="#" class="text-sm text-gray-500 hover:text-white transition">Telegram</a>
-          <a href="#" class="text-sm text-gray-500 hover:text-white transition">GitHub</a>
-        </div>
-      </div>
-    </div>
+  <footer class="relative z-10 border-t border-white/5 py-8 text-center text-sm text-gray-500">
+    <p>© 2026 Claw AI · Built on BSC · Powered by AI</p>
   </footer>
 
   <script src="/js/api.js"></script>
