@@ -1,69 +1,51 @@
 .loader {
   width: 32px; height: 32px;
-  border: 3px solid rgba(255,255,255,0.1);
-  border-top-color: #6366f1;
+  border: 3px solid rgba(180,74,255,0.1);
+  border-top-color: #b44aff;
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* Tabs */
-.tab-btn { color: #6b7280; background: transparent; }
-.tab-btn:hover { color: #e5e7eb; background: rgba(255,255,255,0.05); }
-.tab-btn.active { color: #818cf8; background: rgba(99,102,241,0.15); box-shadow: 0 0 12px rgba(99,102,241,0.1); }
+.tab-btn { color: #9ca3af; background: transparent; }
+.tab-btn:hover { color: #e5e7eb; background: rgba(180,74,255,0.1); }
+.tab-btn.active { color: #b44aff; background: rgba(180,74,255,0.15); border: 1px solid rgba(180,74,255,0.2); }
 
-/* Cards */
-.card { transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s; }
-.card:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(99,102,241,0.1); }
-
-/* Signals */
 .signal-long { color: #34d399; background: rgba(52,211,153,0.1); }
 .signal-short { color: #f87171; background: rgba(248,113,113,0.1); }
 .signal-neutral { color: #fbbf24; background: rgba(251,191,36,0.1); }
 
-/* Score badges */
 .score-badge {
   display: inline-flex; align-items: center; justify-content: center;
-  width: 40px; height: 40px; border-radius: 50%; font-size: 13px; font-weight: 800;
+  width: 36px; height: 36px; border-radius: 50%; font-size: 12px; font-weight: 700;
 }
-.score-high { background: rgba(52,211,153,0.15); color: #34d399; border: 2px solid rgba(52,211,153,0.3); }
-.score-mid { background: rgba(251,191,36,0.15); color: #fbbf24; border: 2px solid rgba(251,191,36,0.3); }
-.score-low { background: rgba(248,113,113,0.15); color: #f87171; border: 2px solid rgba(248,113,113,0.3); }
+.score-high { background: rgba(52,211,153,0.15); color: #34d399; border: 1px solid rgba(52,211,153,0.3); }
+.score-mid { background: rgba(251,191,36,0.15); color: #fbbf24; border: 1px solid rgba(251,191,36,0.3); }
+.score-low { background: rgba(248,113,113,0.15); color: #f87171; border: 1px solid rgba(248,113,113,0.3); }
 
-/* KOL cards */
 .kol-card {
   display: flex; align-items: center; gap: 12px;
-  padding: 14px; border-radius: 14px;
-  background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);
-  transition: all 0.2s;
+  padding: 12px; border-radius: 12px;
+  background: rgba(45,27,78,0.5); border: 1px solid rgba(180,74,255,0.1);
+  transition: all 0.3s;
 }
-.kol-card:hover { border-color: rgba(99,102,241,0.3); background: rgba(99,102,241,0.05); transform: translateX(4px); }
+.kol-card:hover { border-color: rgba(180,74,255,0.3); box-shadow: 0 0 15px rgba(180,74,255,0.1); }
 
-/* Tweet cards */
 .tweet-card {
-  padding: 16px; border-radius: 14px;
-  background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);
-  transition: all 0.2s;
+  padding: 16px; border-radius: 12px;
+  background: rgba(45,27,78,0.5); border: 1px solid rgba(180,74,255,0.1);
+  transition: all 0.3s;
 }
-.tweet-card:hover { border-color: rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); }
+.tweet-card:hover { border-color: rgba(255,107,157,0.3); }
 
-/* News cards */
 .news-card {
-  padding: 16px; border-radius: 14px;
-  background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);
-  display: flex; gap: 14px; align-items: flex-start;
-  transition: all 0.2s;
+  padding: 16px; border-radius: 12px;
+  background: rgba(45,27,78,0.5); border: 1px solid rgba(180,74,255,0.1);
+  display: flex; gap: 12px; align-items: flex-start;
+  transition: all 0.3s;
 }
-.news-card:hover { border-color: rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); }
+.news-card:hover { border-color: rgba(0,229,255,0.3); }
 
-/* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
-
-/* Smooth scroll */
-html { scroll-behavior: smooth; }
-
-/* Selection */
-::selection { background: rgba(99,102,241,0.3); }
+::-webkit-scrollbar-thumb { background: rgba(180,74,255,0.2); border-radius: 3px; }
